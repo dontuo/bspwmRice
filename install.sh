@@ -17,7 +17,7 @@ read -s -p "Enter password for $username: " password
 echo
 
 # Create the user with fish shell
-useradd -m -s /usr/bin/fish "$username"
+useradd -m -s /bin/bash "$username"
 echo "$username:$password" | chpasswd
 
 # Add to groups
@@ -26,18 +26,20 @@ usermod -aG wheel "$username"
 echo "Enabling wheel group in sudoers"
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
-echo "User '$username' created with fish shell and sudo access."
-
-su $username
+echo "User '$username' created with sudo access."
+echo "First part is done. Now installing config files"
 
 echo "Copying .config directory"
-cp -r .config ~/
+su "$username" -c 'cp -r .config ~/'
 
 echo "Copying .local directory"
-cp -r .local ~/
+su "$username" -c 'cp -r .local ~/'
 
 echo "Updating desktop database"
-update-desktop-database ~/.local/share/applications/
+su "$username" -c 'update-desktop-database ~/.local/share/applications/'
 
 sh yay_install.sh
-yay -S --needed --noconfirm $(< yay_packages.txt)
+su "$username" -c 'yay -S --needed --noconfirm $(< yay_packages.txt)'
+
+echo "Rofi font setup"
+su "$username" -c 'sh rofi_font_setup.sh'
