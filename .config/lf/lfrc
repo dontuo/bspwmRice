@@ -3,6 +3,7 @@ set shellopts '-eu'
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 set preview true
+set hidden 
 
 map x quitcd
 cmd quitcd ${{
