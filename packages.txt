@@ -9,12 +9,14 @@ polybar
 rofi
 dunst
 ttf-terminus-nerd
+ttf-jetbrains-mono-nerd
 nitrogen
 ueberzugpp 
 sxiv
 ffmpegthumbnailer
 neovide
 neovim
+lf
 
 pipewire
 wireplumber
@@ -23,11 +25,14 @@ pipewire-pulse
 libpipewire
 lib32-pipewire
 lib32-libpipewire
-pulseaudio
+pavucontrol
+playerctl
 
+xorg
 xorg-xrandr
 xorg-setxkbmap
 xorg-xsetroot
+xorg-xinit
 
 flameshot
 
