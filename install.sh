@@ -1,10 +1,10 @@
 #!/bin/sh
 
 echo "Adding multilib to pacman"
-#echo -e "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
+echo -e "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
 
 echo "Updating pacman database"
-#pacman -Sy --needed --noconfirm
+pacman -Sy --needed --noconfirm
 
 echo "Installing pacman packages"
 sudo pacman -S --needed --noconfirm $(< packages.txt)
