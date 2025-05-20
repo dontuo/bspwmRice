@@ -17,3 +17,5 @@ cp ~/.local/share/applications/lf.desktop .local/share/applications
 cp ~/.local/share/applications/mpv.desktop .local/share/applications
 cp ~/.local/share/applications/neovide.desktop .local/share/applications
 cp ~/.local/share/applications/sxiv.desktop .local/share/applications
+cp ~/.local/share/applications/lfub.desktop .local/share/applications
+cp ~/.local/share/applications/neovideapp.desktop .local/share/applications
