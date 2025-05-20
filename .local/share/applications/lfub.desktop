@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=lfub
+Exec=kitty lfub
+Terminal=false
+Categories=Utility;
