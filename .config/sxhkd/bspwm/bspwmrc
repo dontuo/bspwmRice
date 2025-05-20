@@ -1,0 +1,43 @@
+#! /bin/sh
+exec xrandr --output HDMI-A-0 --right-of DisplayPort-1 --output DisplayPort-1 --mode 2560x1440 --primary  &
+
+# start programs
+
+# screenshots
+flameshot &
+
+# clipboard
+clipmenud &
+
+picom &
+nitrogen --restore
+
+# sound
+systemctl --user start pipewire pipewire-pulse
+systemctl --user start wireplumber
+
+# dynamic workspaces
+sh ~/.config/sxhkd/bspwm_config_desktops.sh &
+
+# polybar
+sh ~/.config/sxhkd/start_polybar.sh &
+
+# cursor and keyboard layout settings
+xsetroot -cursor_name left_ptr &
+setxkbmap -layout "us,ua" -option "grp:win_space_toggle"
+
+
+
+# monitor setup
+
+# bspwm config
+bspc config pointer_follows_monitor true
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true
+
+bspc config pointer_action1 move
+bspc config border_width 2
+bspc config focused_border_color "#ff00ff"
+bspc config normal_border_color "#000000"
+
+bspc rule -a com.github.th_ch.youtube_music state=floating

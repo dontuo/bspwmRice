@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Neovide Editor
+Exec=neovide %f
+Type=Application
+MimeType=text/plain;text/x-c++;text/x-csrc;text/x-python;text/x-shellscript;
+NoDisplay=true

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Kitty Terminal
+GenericName=Terminal
+Exec=kitty
+Icon=utilities-terminal
+Type=Application
+Categories=System;TerminalEmulator;

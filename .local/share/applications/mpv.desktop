@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=mpv Media Player
+Exec=mpv --script=visualizer %f
+Type=Application
+MimeType=video/mp4;video/x-matroska;
+NoDisplay=true

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=lf (file manager)
+Exec=kitty -e lf %F
+Type=Application
+Terminal=false
+MimeType=inode/directory;
+NoDisplay=true
