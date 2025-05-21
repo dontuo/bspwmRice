@@ -7,7 +7,7 @@ echo "Updating pacman database"
 pacman -Sy --needed --noconfirm
 
 echo "Installing pacman packages"
-sudo pacman -S --needed --noconfirm $(< packages.txt)
+pacman -S --needed --noconfirm $(< packages.txt)
 
 echo "adding new user"
 
