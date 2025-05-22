@@ -48,3 +48,6 @@ grub
 efibootmgr
 
 lazygit
+
+picom
+base-devel
