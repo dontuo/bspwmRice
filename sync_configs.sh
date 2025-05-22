@@ -12,6 +12,7 @@ cp ~/.bashrc .
 cp ~/.xinitrc .
 
 cp ~/.local/bin/lfub .local/bin 
+cp ~/.local/bin/youtube_to_mpv .local/bin 
 cp ~/.local/share/applications/kitty.desktop .local/share/applications
 cp ~/.local/share/applications/lf.desktop .local/share/applications
 cp ~/.local/share/applications/mpv.desktop .local/share/applications

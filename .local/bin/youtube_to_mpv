@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mpv "$(rofi -dmenu -i -p "open youtube link in mpv" -theme style-14.rasi)"
