@@ -1,7 +1,14 @@
 #!/bin/sh
 
-echo "Adding multilib to pacman"
-echo -e "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" | tee -a /etc/pacman.conf > /dev/null
+
+echo "Adding multilib to pacman.conf"
+# Check if [multilib] section exists
+if ! grep -q '^\[multilib\]' /etc/pacman.conf; then
+    echo -e "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+    echo "Added multilib repository."
+else
+    echo "Multilib repository already present."
+fi
 
 echo "Updating pacman database"
 pacman -Sy --needed --noconfirm
@@ -14,17 +21,23 @@ echo "adding new user"
 # Get user input
 read -p "Enter username: " username
 read -s -p "Enter password for $username: " password
-echo
 
-# Create the user with fish shell
+# Create the user with bash shell
 useradd -m -s /bin/bash "$username"
 echo "$username:$password" | chpasswd
 
-# Add to groups
+# Add user to wheel group
 usermod -aG wheel "$username"
 
+
 echo "Enabling wheel group in sudoers"
-sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+# Check if line is already enabled
+if ! grep -qE '^%wheel ALL=\(ALL:ALL\) ALL' /etc/sudoers; then
+    sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+    echo "Enabled wheel group in sudoers."
+else
+    echo "Wheel group already enabled in sudoers."
+fi
 
 echo "User '$username' created with sudo access."
 echo "First part is done. Now installing config files"
@@ -35,9 +48,13 @@ su "$username" -c 'cp -r .config ~/'
 echo "Copying .local directory"
 su "$username" -c 'cp -r .local ~/'
 
+echo "Copying .bashrc and .xinitrc directory"
+su "$username" -c 'cp .bashrc .xinitrc ~/'
+
 echo "Updating desktop database"
 su "$username" -c 'update-desktop-database ~/.local/share/applications/'
 
+echo "installing yay (AUR helper)"
 sh yay_install.sh
 su "$username" -c 'yay -S --needed --noconfirm $(< yay_packages.txt)'
 
