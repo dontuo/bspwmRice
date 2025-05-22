@@ -27,7 +27,10 @@ super + r
     sh ~/.config/rofi/launcher
 
 super + x
-    rofi -show window
+    rofi -show window -theme style-14.rasi
+
+super + o
+    youtube_to_mpv
 
 # for clipboard "history"
 super + c
