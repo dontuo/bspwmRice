@@ -55,8 +55,14 @@ echo "Updating desktop database"
 su "$username" -c 'update-desktop-database ~/.local/share/applications/'
 
 echo "installing yay (AUR helper)"
-sh yay_install.sh
+su "$username" -c "sh yay_install.sh"
+
+echo "installing aur packages"
 su "$username" -c 'yay -S --needed --noconfirm $(< yay_packages.txt)'
 
 echo "Rofi font setup"
 su "$username" -c 'sh rofi_font_setup.sh'
+
+echo "grub setup"
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
