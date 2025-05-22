@@ -43,3 +43,8 @@ cava
 
 sudo
 fish
+
+grub
+efibootmgr
+
+lazygit
