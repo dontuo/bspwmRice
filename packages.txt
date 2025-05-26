@@ -63,6 +63,6 @@ texlive-latexextra
 texlive-fontsextra
 texlive-core
 texlive-bin
-
+texlive-langcyrillic
 
 
