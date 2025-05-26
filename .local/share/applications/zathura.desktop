@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Zathura - pdf reader
+Exec=zathura %f
+Type=Application
+MimeType=application/pdf
+NoDisplay=false

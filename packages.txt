@@ -44,6 +44,8 @@ cava
 sudo
 fish
 
+firefox
+
 grub
 efibootmgr
 
@@ -51,3 +53,16 @@ lazygit
 
 picom
 base-devel
+
+zathura 
+zathura-pdf-poppler
+
+texlive-binextra
+texlive-fontsrecommended
+texlive-latexextra
+texlive-fontsextra
+texlive-core
+texlive-bin
+
+
+
