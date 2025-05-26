@@ -11,8 +11,11 @@ flameshot &
 clipmenud &
 
 picom &
-
+sxhkd &
 nitrogen --restore
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+killall unfocus.sh
+sh ~/.config/sxhkd/unfocus.sh &
 
 # sound
 systemctl --user start pipewire pipewire-pulse
@@ -33,6 +36,7 @@ bspc monitor HDMI-A-0 -d 8 9 0
 
 bspc config pointer_follows_monitor true
 bspc config focus_follows_pointer true
+bspc config swallow_first_click true
 
 bspc config pointer_action1 move
 bspc config border_width 2

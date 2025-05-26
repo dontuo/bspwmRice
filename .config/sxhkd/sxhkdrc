@@ -32,10 +32,15 @@ super + x
 super + o
     youtube_to_mpv
 
+super + w
+    bspscratchpad --toggle
+
+super + shift + w 
+    bspscratchpad --cycle
+
 # for clipboard "history"
 super + c
     clipmenu
-
 # screenshot
 Print
     flameshot gui -c -p ~/Pictures
